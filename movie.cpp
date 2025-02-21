@@ -1,5 +1,7 @@
 #include "movie.h"
 #include "util.h"
+#include <sstream>
+#include <iomanip>
 
 using namespace std;
 
@@ -25,8 +27,12 @@ void Movie::dump(ostream& os) const {
 }
 
 string Movie::displayString() const {
+    ostringstream os;
+    os << fixed << setprecision(2) << getPrice();
+
+
     string toDisplay = getName() + "\n" +
                      "Genre: " + getGenre() + " " +  "Rating: " + getRating() + "\n" + 
-                     to_string(getPrice()) + " " + to_string(getQty()) + "left" + "\n";
+                     os.str() + " " + to_string(getQty()) + "left" + "\n";
     return toDisplay;
 }

@@ -125,9 +125,9 @@ int main(int argc, char* argv[])
                     if((error == false) && (cart.empty())) { cout << "Empty Cart" << endl;}
 
                     else if( error == false) {
-                        int counter = 0;
-                        for (int i = cart.size() - 1; i >= 0; i--) {
-                            cout << counter << " " << cart.at(i)->displayString() << endl;
+                      
+                        for (unsigned int i = 0; i <cart.size(); i++) {
+                            cout << "item " << (i+1) << "\n " << cart.at(i)->displayString() << endl;
                         }
                     }
                     else {   cout << "Invalid username" << endl;   }   

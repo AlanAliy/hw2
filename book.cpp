@@ -1,6 +1,7 @@
 
 
-
+#include <sstream>
+#include <iomanip>
 #include "book.h"
 #include "util.h"
 
@@ -31,8 +32,11 @@ void Book::dump(ostream& os) const {
 }
 
 string Book::displayString() const {
+    ostringstream os;
+    os << fixed << setprecision(2) << getPrice();
+    
     string toDisplay = getName() + "\n" +
                      "Author: " + getAuthor() + " " +  "ISBN: " + getIsbn() + "\n" + 
-                     to_string(getPrice()) + " " + to_string(getQty()) + "left" + "\n";
+                     os.str() + " " + to_string(getQty()) + "left" + "\n";
     return toDisplay;
 }

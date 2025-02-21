@@ -1,3 +1,6 @@
+
+#include <sstream>
+#include <iomanip>
 #include "clothing.h"
 #include "util.h"
 
@@ -28,8 +31,11 @@ void Clothing::dump(ostream& os) const {
 }
 
 string Clothing::displayString() const {
+    ostringstream os;
+    os << fixed << setprecision(2) << getPrice();
+
     string toDisplay = getName() + "\n" +
                      "Size: " + getClothSize() + " " +  "Brand: " + getBrand() + "\n" + 
-                     to_string(getPrice()) + " " + to_string(getQty()) + "left" + "\n";
+                     os.str() + " " + to_string(getQty()) + "left" + "\n";
     return toDisplay;
 }
