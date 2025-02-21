@@ -1,6 +1,6 @@
 *.o
 amazon
 hw2_tests/
-.vscode
+.vscode/
 *.txt
 *.out
