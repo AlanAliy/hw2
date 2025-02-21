@@ -95,7 +95,7 @@ std::vector<Product*> MyDataStore::search(std::vector<string>& terms, int type) 
 }
 
 void MyDataStore::addCartSrch(uint16_t indx, std::string username, bool& error) {
-    if ( indx < lastSearchResultPtr_.size()) {
+    if ( (indx < lastSearchResultPtr_.size()) && (usersPtr_.find(convToLower(username)) != usersPtr_.end())) {
         usersPtr_[convToLower(username)]->addToCart(lastSearchResultPtr_[indx]);
         error = false;
     }

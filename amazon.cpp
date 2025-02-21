@@ -107,7 +107,7 @@ int main(int argc, char* argv[])
                 uint16_t indx;
                 string username;
                 if (ss >> username && ss>>indx) {
-                    ds.addCartSrch(indx, username, error);
+                    ds.addCartSrch(indx-1, username, error);
                     
                     if(error){
                         cout << "Invalid request" << endl;
